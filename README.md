@@ -4,9 +4,21 @@ A simple MQTT agent based on node.js that subscribes to a given list of MQTT top
 on the specified broker and executes a given shell script/command whenever
 a message arrives. It can also be used in combination with a Home Automation Framework like [Home.Pi](https://github.com/denschu/home.pi)
 
+## Fork info
+
+Added robustness.  
+Fixed logger.  
+Fixed double subscribe to message notifications.
+Added dotenv support.  
+Pulling some improvements from https://github.com/ayavilevich/mqtt-win-exec  
+
 ## Setup
 
 	npm install mqtt-exec -g
+
+If you run from source, install dependencies first:
+
+	npm install
 
 ## Start broker
 
@@ -38,6 +50,10 @@ or run it in the backround with logging to a file
 You can also set the MQTT broker url as environment variable
 
 	export MQTT_BROKER_URL=mqtt://localhost:1883
+
+Or create a `.env` file in the project root (loaded automatically via `dotenv`):
+
+	MQTT_BROKER_URL=mqtt://localhost:1883
 
 ## Simulate the execution of a command
 
